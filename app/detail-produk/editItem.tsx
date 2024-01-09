@@ -17,25 +17,25 @@ import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 
-export function AddItem() {
-  const [bookName, setBookName] = useState("");
-  const [authors, setAuthors] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
+export function EditItem(product: any) {
+  const [bookName, setBookName] = useState(product.title);
+  const [authors, setAuthors] = useState(product.author);
+  const [price, setPrice] = useState(product.price);
+  const [description, setDescription] = useState(product.description);
 
   const router = useRouter();
   const { toast } = useToast();
 
-  async function addThisItem(params: SyntheticEvent) {
+  async function editItem(params: SyntheticEvent) {
     params.preventDefault();
 
     const nimValue = "1234"; // Replace this with the actual value you want to use for the "nim" header
 
     try {
       const response = await fetch(
-        "https://testcasefe2023.ignorelist.com/api/v1/data",
+        `https://testcasefe2023.ignorelist.com/api/v1/data/${product.id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             nim: "1234",
@@ -63,29 +63,25 @@ export function AddItem() {
       console.error("An error occurred:", error.message);
     }
 
-    setBookName("");
-    setPrice("");
-    setDescription("");
-    setAuthors("");
     router.refresh();
   }
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">
-          <PlusIcon className="mr-2"></PlusIcon>Tambah Buku
-        </Button>
+        <button className="text-green-500 text-sm mr-3 px-2 py-1 hover:underline bg-green-200 rounded-lg">
+          Edit
+        </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="mb-3">Tambah Data Buku</DialogTitle>
+          <DialogTitle className="mb-3">Edit Data {product.title}</DialogTitle>
           <DialogDescription>
-            Masukkan data buku sesuai form. Klik tombol 'Tambah data' jika
+            Masukkan data buku sesuai form. Klik tombol 'Edit data' jika
             selesai.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={addThisItem}>
+        <form onSubmit={editItem}>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label className="text-right">Nama Buku</Label>
@@ -109,7 +105,7 @@ export function AddItem() {
               <Label className="text-right">Harga</Label>
               <Input
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={(e) => setPrice(Number(e.target.value))}
                 className="col-span-3 text-xs"
                 placeholder="Tuliskan harga buku..."
               />
@@ -129,10 +125,9 @@ export function AddItem() {
               type="submit"
               variant="default"
               onClick={() => {
-                router.refresh();
                 toast({
                   title: "Data berhasil ditambahkan",
-                  description: `Buku '${bookName}' Berhasil Di Tambahkan`,
+                  description: `Buku '${bookName}' berhasil di tambahkan`,
                   className: "bg-green-200 border-green-400",
                   action: (
                     <ToastAction
@@ -145,7 +140,7 @@ export function AddItem() {
                 });
               }}
             >
-              Tambah Data
+              Edit Data
             </Button>
           </DialogFooter>
         </form>

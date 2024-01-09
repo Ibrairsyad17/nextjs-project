@@ -10,6 +10,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { AddItem } from "./addItem";
+import { DeleteItem } from "./deleteItem";
+import { EditItem } from "./editItem";
 
 async function getProducts() {
   const headers = { nim: "1234" };
@@ -25,16 +27,16 @@ export default async function Details() {
   const products = await getProducts();
   return (
     <main className="flex min-h-screen flex-col items-center py-10 px-5 lg:py-24 lg:px-20">
-      <h1 className="w-11/12 sm:w-9/12 md:text-3xl text-2xl font-semibold mb-2 lg:mb-5">
+      <h1 className="w-11/12 sm:w-9/12 md:text-3xl text-2xl font-semibold mb-3 lg:mb-5">
         Daftar Produk Buku
       </h1>
-      <p className="w-11/12 sm:w-9/12 text-sm lg:text-lg">
+      <p className="w-11/12 sm:w-9/12 text-sm lg:text-lg leading-loose">
         Menampilkan data produk buku berdasarkan yang ada di{" "}
         <span className="text-red-700 bg-red-200 py-1 px-2 text-xs lg:text-sm font-semibold inline-block rounded-sm">
           Public API
         </span>
       </p>
-      <div className="w-11/12 sm:w-9/12 flex mt-2 lg:mt-5">
+      <div className="w-11/12 sm:w-9/12 flex mt-4 lg:mt-5">
         <Button className="text-sm mr-2 bg-red-500 hover:bg-white border border-red-500 hover:text-red-500">
           <ArrowLeftIcon className="mr-2"></ArrowLeftIcon>
           Kembali
@@ -60,23 +62,18 @@ export default async function Details() {
             {products.data.map((product: any, index: any) => (
               <TableRow key={product.id}>
                 <TableCell className="font-medium">{index + 1}</TableCell>
-                <TableCell><a href="" className="hover:underline">{product.title}</a></TableCell>
+                <TableCell>
+                  <a href="" className="hover:underline">
+                    {product.title}
+                  </a>
+                </TableCell>
                 <TableCell>{product.author}</TableCell>
                 <TableCell>{product.price}</TableCell>
                 <TableCell>{product.description}</TableCell>
-                <TableCell className="flex">
-                  <button
-                    className="text-green-500 text-sm mr-3 px-2 py-1 hover:underline bg-green-200 rounded-lg"
-                  >
-                    Edit
-                  </button>
-                  |
-                  <a
-                    href=""
-                    className="text-red-500 text-sm ml-3 px-2 py-1 hover:underline bg-red-200 rounded-lg"
-                  >
-                    Delete
-                  </a>
+                <TableCell className="flex align-center">
+                  <EditItem {...product}></EditItem>
+                  <span> |</span>
+                  <DeleteItem {...product}></DeleteItem>
                 </TableCell>
               </TableRow>
             ))}
