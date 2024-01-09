@@ -1,4 +1,4 @@
-import { PlusIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { AddItem } from "./addItem";
 
 async function getProducts() {
   const headers = { nim: "1234" };
@@ -24,7 +25,7 @@ export default async function Details() {
   const products = await getProducts();
   return (
     <main className="flex min-h-screen flex-col items-center py-10 px-5 lg:py-24 lg:px-20">
-      <h1 className="w-11/12 sm:w-9/12 md:text-3xl text-xl font-semibold mb-2 lg:mb-5">
+      <h1 className="w-11/12 sm:w-9/12 md:text-3xl text-2xl font-semibold mb-2 lg:mb-5">
         Daftar Produk Buku
       </h1>
       <p className="w-11/12 sm:w-9/12 text-sm lg:text-lg">
@@ -38,40 +39,42 @@ export default async function Details() {
           <ArrowLeftIcon className="mr-2"></ArrowLeftIcon>
           Kembali
         </Button>
-        <Button className="text-sm">
-          <PlusIcon className="mr-2"></PlusIcon>
-          Tambah Produk Buku
-        </Button>
+        <AddItem></AddItem>
       </div>
-      <div className="w-11/12 sm:w-9/12 mt-7 ">
-        <Table className="w-full border shadow-sm">
+      <div className="w-11/12 sm:w-9/12 mt-7">
+        <Table className="w-full border shadow-md text-xs lg:text-sm">
           <TableCaption className="mt-6">
             Daftar dari produk buku terbaru.
           </TableCaption>
-          <TableHeader className="">
+          <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px] ">No.</TableHead>
+              <TableHead className="w-[100px]">No.</TableHead>
               <TableHead>Nama Produk</TableHead>
               <TableHead>Penulis</TableHead>
               <TableHead>Harga</TableHead>
               <TableHead>Deskripsi</TableHead>
-              <TableHead></TableHead>
+              <TableHead>Aksi</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {products.data.map((product: any, index: any) => (
               <TableRow key={product.id}>
                 <TableCell className="font-medium">{index + 1}</TableCell>
-                <TableCell>{product.title}</TableCell>
+                <TableCell><a href="" className="hover:underline">{product.title}</a></TableCell>
                 <TableCell>{product.author}</TableCell>
                 <TableCell>{product.price}</TableCell>
                 <TableCell>{product.description}</TableCell>
-                <TableCell>
-                  <a href="" className="text-green-500 p-2 hover:underline">
+                <TableCell className="flex">
+                  <button
+                    className="text-green-500 text-sm mr-3 px-2 py-1 hover:underline bg-green-200 rounded-lg"
+                  >
                     Edit
-                  </a>
+                  </button>
                   |
-                  <a href="" className="text-red-500 p-2 hover:underline">
+                  <a
+                    href=""
+                    className="text-red-500 text-sm ml-3 px-2 py-1 hover:underline bg-red-200 rounded-lg"
+                  >
                     Delete
                   </a>
                 </TableCell>
