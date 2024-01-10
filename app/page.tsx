@@ -79,7 +79,11 @@ export default function Home() {
         </div>
       </section>
       <div className="h-96">
-        <img src="/public/lp1.png" alt="" className="h-56" />
+        <img
+          src="https://drive.google.com/uc?export=view&id=1RI5r2fcYj3fSxvyQn-XJkX3e6HUm1Iyu"
+          alt=""
+          className="h-56"
+        />
       </div>
       <Foot></Foot>
     </main>
