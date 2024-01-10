@@ -58,7 +58,7 @@ export function DeleteItem(product: any) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="mb-3">Tambah Data Buku</DialogTitle>
+          <DialogTitle className="mb-3">Hapus Data Buku</DialogTitle>
           <DialogDescription>
             Apakah anda yakin ingin {`${product.title}`} menghapus data ini?.
           </DialogDescription>
