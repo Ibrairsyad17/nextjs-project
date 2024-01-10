@@ -23,7 +23,7 @@ export default async function DetailsProduct({
   const productInfo = await getInfo();
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-5 lg:px-20">
+    <main className="flex min-h-screen flex-col items-center px-5  lg:px-20">
       <Nav></Nav>
 
       {/* Title Page */}
