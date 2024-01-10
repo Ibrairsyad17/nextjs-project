@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 export default async function Details() {
   const products = await getProducts();
   return (
-    <main className="flex min-h-screen flex-col items-center px-5 lg:px-20">
+    <main className="flex min-h-screen flex-col items-center px-1 lg:px-20">
       <Nav></Nav>
       <h1 className="w-11/12 sm:w-9/12 md:text-3xl text-2xl font-semibold mt-6 mb-3 lg:mb-5">
         Daftar Produk Buku
@@ -101,7 +101,7 @@ export default async function Details() {
         </ol>
       </div>
 
-      <p className="w-11/12 sm:w-9/12 text-sm lg:text-lg leading-loose">
+      <p className="w-11/12 sm:w-9/12 text-md lg:text-lg leading-loose">
         Menampilkan data produk buku berdasarkan yang ada di{" "}
         <span className="text-red-700 bg-red-200 py-1 px-2 text-xs lg:text-sm font-semibold inline-block rounded-xl ">
           Public API

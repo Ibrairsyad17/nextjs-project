@@ -15,12 +15,14 @@ export function Nav() {
         </Link>
         <div className="flex w-32 mt-3 md:m-0 justify-between align-center">
           <Button variant="outline" size="icon" asChild>
-            <Link href="">
+            <Link href="https://github.com/Ibrairsyad17">
               <GitHubLogoIcon className="h-4 w-4" />
             </Link>
           </Button>
-          <Button variant="outline" size="icon">
-            <LinkedInLogoIcon className="h-4 w-4" />
+          <Button variant="outline" size="icon" asChild>
+            <Link href="https://www.linkedin.com/in/ibrairsyad17">
+              <LinkedInLogoIcon className="h-4 w-4" />
+            </Link>
           </Button>
           <Button variant="outline" size="icon" asChild>
             <Link href="https://www.instagram.com/wbaiemm._/">

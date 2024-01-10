@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Nav } from "@/components/Nav";
 
 export default async function DetailsProduct({
   params,
@@ -22,10 +23,12 @@ export default async function DetailsProduct({
   const productInfo = await getInfo();
 
   return (
-    <main className="flex min-h-screen flex-col items-center py-10 px-5 lg:py-24 lg:px-20">
+    <main className="flex min-h-screen flex-col items-center px-5 lg:px-20">
+      <Nav></Nav>
+
       {/* Title Page */}
 
-      <h1 className="w-11/12 sm:w-8/12 md:text-3xl text-2xl font-semibold mb-3 lg:mb-5">
+      <h1 className="w-11/12 sm:w-9/12 md:text-3xl mt-6 text-2xl font-semibold mb-3 lg:mb-5">
         Detail Produk{" "}
         <Badge className="bg-amber-200 text-amber-700 hover:bg-amber-300">
           #{params.idProduk}
@@ -34,7 +37,7 @@ export default async function DetailsProduct({
 
       {/* Breadcrumb */}
 
-      <div className="w-11/12 sm:w-8/12 mb-7 mt-2">
+      <div className="w-11/12 sm:w-9/12 mb-7 mt-2">
         <ol
           className="flex items-center whitespace-nowrap"
           aria-label="Breadcrumb"
@@ -108,7 +111,7 @@ export default async function DetailsProduct({
       </div>
       {/* Product Information */}
 
-      <div className="w-11/12 sm:w-8/12 border p-5 rounded-lg">
+      <div className="w-11/12 sm:w-9/12 border p-5 rounded-lg">
         <div className="sm:px-0">
           <h3 className="text-lg font-semibold leading-7 text-gray-900">
             {productInfo.data.title}
