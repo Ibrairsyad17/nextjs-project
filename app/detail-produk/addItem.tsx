@@ -73,7 +73,7 @@ export function AddItem() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">
+        <Button size="sm" variant="default">
           <PlusIcon className="mr-2"></PlusIcon>Tambah Buku
         </Button>
       </DialogTrigger>

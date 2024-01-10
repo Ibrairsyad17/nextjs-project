@@ -126,8 +126,8 @@ export function EditItem(product: any) {
               variant="default"
               onClick={() => {
                 toast({
-                  title: "Data berhasil ditambahkan",
-                  description: `Buku '${bookName}' berhasil di tambahkan`,
+                  title: "Data berhasil diedit",
+                  description: `Buku '${bookName}' berhasil diedit`,
                   className: "bg-green-200 border-green-400",
                   action: (
                     <ToastAction
