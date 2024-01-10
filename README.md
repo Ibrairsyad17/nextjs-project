@@ -1,8 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Next.js CRUD API App 
 
-First, run the development server:
+Aplikasi Create, Read, Update, dan Delete (CRUD) data dari API menggunakan teknologi Next.js dan Tailwind CSS.
+
+
+
+## Teknologi dan Tools UI
+
+Teknologi dan tools yang digunakan:
+
+ - [TailwindCSS](https://tailwindcss.com/docs/installation)
+ - [shadcn/ui](https://ui.shadcn.com/)
+ - [Next.js](https://nextjs.org/)
+
+## Menjalankan Program
+
+Pertama, jalankan server (Node.js Runtime):
 
 ```bash
 npm run dev
@@ -14,11 +27,24 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka tautan [http://localhost:3000](http://localhost:3000) dengan web browser anda untuk menampilkan halaman.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Anda bisa memodifikasi tampilan melalui `app/page.tsx`. Halaman akan otomatis berubah saat anda melakukan save pada saat memodifikasi.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Proyek ini juga menggunakan [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) untuk mengoptimalkan font Inter yang merupakan font kustom dari google
+
+## Demo
+
+Anda bisa melihat demo website ini melalui tautan [https://ibrahimirsad-crud.vercel.app/](https://ibrahimirsad-crud.vercel.app/)
+
+
+![Imgur](https://i.imgur.com/Pg0BMug.png?1)
+
+![Imgur](https://imgur.com/RonSXrV.png?1)
+
+![Imgur](https://i.imgur.com/b0j1XYn.png?1)
+
+![Imgur](https://i.imgur.com/vXOFIlw.png?1)
 
 ## Learn More
 
